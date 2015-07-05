@@ -1,0 +1,100 @@
+// -----------------------------------------------------------------------------
+// Fichier: _N-Cols-media-queries.scss
+// ---
+//
+// Package : N-Col(s) Master - V 1.0.0 Beta
+// Copyright : (c) 2013 - 2015 Steeve Lefebvre - <webstartup.sl at gmail.com>
+// Projet URI: 
+// License   : http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
+// ---
+//
+// Description: 
+// Ce fichier contient les différentes mixins utilisées pour les médias-queries
+// ---
+//
+// Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+// Ajouter des média-quéries
+// ---
+// @param 1 type de média (mobile, tablette, tablette-max, pc-petit-max, pc-bureau-max)
+// @param 2 Type de requete voulu (min, max ou min-max)
+// @param 3 Type d'orientation (portrait ou landscape)
+// ---
+// Utilisation:
+// @include rmq(mobile){ /* Votre css */ };
+// @include rmq(tblette, min-max){ /* Votre css */ };
+// @include rmq(pc-petit-max, min, portrait){ /* Votre css */ };
+@mixin rmq($media:tablette, $type:max, $orientation: null){
+    $size: '';
+
+    @if $type != min-max{
+        @if $media == mobile{
+            $size: $N-Cols_mobile;
+        }
+        @else if $media == tablette{
+            $size: $N-Cols_tablette;
+        }
+        @else if $media == tablette-max{
+            $size: $N-Cols_tablette-max;
+        }
+        @else if $media == pc-petit-max{
+            $size: $N-Cols_PC-petit-max;
+        }
+        @else if $media == pc-bureau-max{      
+            $size: $N-Cols_PC-grand-max;
+        }
+
+        @if $type == max{
+            @if $orientation == null{
+                @media only screen and (max-width: $size) { @content; }
+            }@else{
+                @media only screen and (max-width: $size) and (orientation: $orientation) { @content; }
+            }        
+        }@else if $type == min{
+            @if $orientation == null{
+                @media only screen and (min-width: $size) { @content; }
+            }@else{
+                @media only screen and (min-width: $size) and (orientation: $orientation) { @content; }
+            } 
+        }
+    }
+
+    @else if $type == min-max{
+        $type: ''; $size: ''; $min: ''; $max: ''; 
+
+        @if $media == mobile{
+            $min: 0;
+            $max: $N-Cols_mobile;
+        }
+        @else if $media == tablette{
+            $min: ($N-Cols_mobile + 1);
+            $max: $N-Cols_tablette;
+        }
+        @else if $media == tablette-max{
+            $min: ($N-Cols_tablette + 1);
+            $max: $N-Cols_tablette-max;
+        }
+        @else if $media == pc-petit-max{
+            $min: ($N-Cols_tablette-max + 1);
+            $max: $N-Cols_pc-petit-max;
+        }
+        @else if $media == pc-grand-max{
+            $min: ($N-Cols_pc-petit-max + 1);        
+            $max: $N-Cols_pc-grand-max;
+        }
+
+        @if $orientation == null{
+            @media only screen and (min-width: $min) and (max-width: $max) { @content; }
+        }@else{
+            @media only screen and (min-width: $min) and (max-width: $max) and (orientation: $orientation) { @content; }
+        }
+    }
+}
+
+// TODO : Implémenter les rmq Rétina
+// https://signalvnoise.com/posts/3271-easy-retina-ready-images-using-scss
+
+

@@ -1,0 +1,33 @@
+// -----------------------------------------------------------------------------
+// Fichier: _N-Cols-fonctions.scss
+// ---
+//
+// Package : N-Col(s) Master - V 1.0.0 Beta
+// Copyright : (c) 2013 - 2015 Steeve Lefebvre - <webstartup.sl at gmail.com>
+// Projet URI: 
+// License   : http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
+// ---
+//
+// Description: 
+// Ce fichier rassemble les différentes fonctions utilisés pour les mixins
+// ---
+//
+// Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+// @mixin grille-conteneur();
+@function tM($nbColonnes, $marge ) {
+    @return (($nbColonnes - 1) * $marge);
+}
+@function lC($num, $marge) {
+    @return ((100  - tM($num, $marge)) / $num);
+}
+
+
+// -----------------------------------------------------------------------------
+// @mixin regle-px-rem();
+@function pI($n) { 
+    @return $n / ($n * 0 + 1);
+}

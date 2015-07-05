@@ -1,0 +1,163 @@
+// -----------------------------------------------------------------------------
+// Fichier: _N-Cols-mixins.scss
+// ---
+//
+// Package : N-Col(s) Master - V 1.0.0 Beta
+// Copyright : (c) 2013 - 2015 Steeve Lefebvre - <webstartup.sl at gmail.com>
+// Projet URI: 
+// License   : http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
+// ---
+//
+// Description: 
+// Ce fichier contient les différentes mixins fonctionnants seul
+// Des mixins souvent bien utiles aussi bien pour le Fmk que le thème
+// ---
+//
+// Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+// Etendre une div contenant des éléments flottants
+// ---
+// @param 1 Type de celearfix
+// ---
+// Utilisation:
+// @include clearfix();
+// @include clearfix(full);
+
+@mixin clearfix($type:min) {
+    *zoom: 1; // Pour IE 6/7. Inclure cette règle pour déclencher hasLayout et contenir les flotteurs.    
+    @if $type == min{
+        &:before, &:after { content:''; display:table; }
+    } 
+    @else if $type == full{
+        &:before, &:after { content:''; display:block; overflow:hidden; visibility:hidden; font-size:0; line-height:0; width:0; height:0; }
+    }
+    &:after { clear:both ; }
+}
+
+
+// -----------------------------------------------------------------------------
+// Ajouter une règle css préfixée
+// ---
+// @param 1 Propriété CSS
+// @param 2 Valeurs
+// @Param 3 Préfixe css
+// --- 
+// Utilisation:
+// @include regle_css(color, red, moz ms)
+
+@mixin regle_css($regle, $valeurs, $prefixes:null){
+    @if $prefixes != null{
+        @each $prefixe in $prefixes {
+            -#{$prefixe}-#{$regle}: $valeurs;
+        }
+        #{$regle}: $valeurs; 
+    }@else {
+        #{$regle}: $valeurs; 
+    }  
+}
+
+
+// -----------------------------------------------------------------------------
+// Retourne une règle css avec valeur en px et rem
+// ---
+// @param 1 Nom de la propriéte
+// @param 2 La valeur
+// ---
+// Utilisation:
+// @include regle_px_rem(margin-top: 15px);
+// @include regle_px_rem(font-size: 1rem);
+
+@mixin regle_px_rem($regle, $valeurs) {
+    $px: (); 
+    $rem: (); 
+
+    @each $valeur in $valeurs { 
+        @if $valeur == 0 or $valeur == auto { 
+            $px : append($px , $valeur);
+            $rem: append($rem, $valeur);
+        }
+        @else { 
+            $unite: unit($valeur);    
+            $val: pI($valeur);
+            @if $unite == "px" {  
+                $px : append($px,  $valeur);
+                $rem: append($rem, ($val / 18 + rem));
+            }
+            @if $unite == "rem" {
+                $px : append($px,  ($val * 16 + px));
+                $rem: append($rem, $valeur);
+            }
+        }
+    }
+    @if $px == $rem {     
+        #{$regle}: $px;   
+        #{$regle}: $rem; 
+    } @else {
+        #{$regle}: $px;
+        #{$regle}: $rem; 
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+// Importer une ou plusieurs fonts a partir de Google
+// ---
+// @param 1 Le ou les noms des fonts
+// ---
+// Utilisation:
+// @include typo_fonts(Oswald, ...);
+
+@mixin typo_fonts($noms...) {
+    $url: "http://fonts.googleapis.com/css?family=";
+    $nb: 0;
+
+    @each $nom in $noms {
+        $nb: $nb + 1;
+        $nb_mots: 0;
+
+        @each $word in $nom {
+            $nb_mots: $nb_mots + 1;
+            $url: $url + $word;
+
+            @if $nb_mots < length($nom) {
+                $url: $url + "+"; 
+            } 
+        }
+
+        @if $nb < length($noms) {
+            $url: $url + "|"; 
+        }
+    }
+
+    @import url($url);
+}
+
+
+// -----------------------------------------------------------------------------
+// Ajouter un pattern en fond
+// ---
+// @param 1 Nom du pattern
+// @param 2 Background repeat
+// @param 3 Background origin
+// @param 4 Background position
+// @param 5 Background size
+// ---
+// Utilisation:
+// @include pattern(crossword);
+
+@mixin pattern($pattern, $repeat:repeat, $origine:border-box, $position:left top, $size:null) {
+    $url: "http://subtlepatterns.com/patterns/";
+    $url: $url + $pattern + '.png';
+    background-image:  url($url);
+    background-repeat: $repeat;
+    background-position: $position;
+
+    @include regle_css(background-origin, $origine, $N-Cols_prefixes_full);
+
+    @if $size != null{
+        @include regle_css(background-size, $size, $N-Cols_prefixes_full);
+    }
+}

@@ -1,0 +1,120 @@
+// -----------------------------------------------------------------------------
+// Fichier: _N-Cols-conteneur.scss
+// ---
+//
+// Package : N-Col(s) Master - V 1.0.0 Beta
+// Copyright : (c) 2013 - 2015 Steeve Lefebvre - <webstartup.sl at gmail.com>
+// Projet URI: 
+// License   : http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
+// ---
+//
+// Description: 
+// Ce fichier contient les différentes mixins dédiées a la grille
+// ---
+//
+// Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+// -----------------------------------------------------------------------------
+
+
+// ----------------------------------------------------------------------------
+// Crée un bloc de contenu auto: 100%
+// ---
+// @param 1 Margin-top (%, px, pt, rem, em...) défaut 0
+// @param 2 Margin-bottom (%, px, pt, rem, em...) défaut 0
+// @param 3 Padding top/bottom (%, px, pt, rem, em...)  défaut 0
+// @param 4 Padding left/right (%, px, pt, rem, em...)  défaut 0
+// @param 5 ClearFix défaut null
+// ---
+// Utilisation:
+// @include auto-conteneur($mar_t:15px, $mar_b:33px, $pad_tb:25px, $pad_lr:25px, $cf:null);
+
+@mixin auto-conteneur($mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null){
+    // width: 100 - ($pad-lr * 2) + 0%; // Ancienne version, ne permet pas le width en px
+    // width: auto;
+    margin: $mar_t 0 $mar_b 0;
+    padding: ($pad_tb + 0) ($pad_lr + 0);
+    @if $cf == cf{ 
+        @include clearfix;
+        overflow: hidden; // Contexte de formatage, empêche le dépassement des flottants
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+// Crée un bloc de contenu de largueur fixe
+// ---
+// @param 1 width (%, px, pt, rem, em...) défaut 100%
+// @param 2 Margin-top (%, px, pt, rem, em...) défaut 0
+// @param 3 Margin-bottom (%, px, pt, rem, em...) défaut 0
+// @param 4 Padding top/bottom (%, px, pt, rem, em...) défaut 0
+// @param 5 Padding left/right (%, px, pt, rem, em...) défaut 0
+// @param 6 ClearFix défaut null
+// ---
+//
+// ATTENTION:
+// L'unité de valeur du @param 1 doit absolument être identique a l'unité du @param 5 
+// EXEMPLE: ($width = 1300px) et ($pad_lr = 15px) OU ($width = 85%) et ($pad_lr = 3%)
+// ---
+//
+// Utilisation:
+// @include box-conteneur($width:1200px, $mar_t:50px, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null);
+// @include box-conteneur($width:80%, $mar_t:50px, $mar_b:0, $pad_tb:0, $pad_lr:3%, $cf:null);
+
+@mixin box-conteneur($width:$fmk-box-width, $mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null){
+    width: $width - ($pad-lr * 2) + 0;
+    position: relative;
+    // ---
+    // Centrer un bloc sans utiliser => margin: 0 auto;
+    // On met sur le bloc un left a 50% puis un margin-left négatif: -(conteneur / 2)
+    // EX: width:1000px; left:50%; margin-left: -500px;
+    // Cette astuce règle les soucis de centrage de certains IE et évite un text-align:center;
+    // ---
+    left: 50%;
+    $margin: ($width / 2) + 0; 
+    margin: $mar_t auto $mar_b (-$margin);
+    padding: ($pad_tb + 0) ($pad_lr + 0);
+    @if $cf == cf{
+        @include clearfix;
+        overflow: hidden; // Contexte de formatage, empêche le dépassement des flottants
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+// Crée un bloc de rangées 
+// ---
+// @param 1 nb colonnes pour la découpe du bloc parent
+// @param 2 nb colonnes utilisées dans le bloc à afficher
+// @param 3 général padding en %
+// @param 4 taille de la marge droite du bloc de colonnes a afficher
+// @param 5 Supprime la marge de la dernière colonne du dernier bloc d'une rangée'
+// @param 6 ClearFix, le bloc contient des blocs de colonnes
+// ---
+//
+// ATTENTION:
+// Toutes les valeurs sont en exprimées %
+//
+// ---
+// Utilisation:
+// @include colonne-conteneur($par_nbCol:1, $elm_nbCol:1, $pad:0%, $mar_r:0%, $fin:null, $cf:null);
+
+@mixin colonne-conteneur($par_nbCol:1, $elm_nbCol:1, $pad:0%, $mar_r:0%, $fin:null, $cf:null){
+    $width: ((tM($elm_nbCol, $mar_r) + ($elm_nbCol * lC($par_nbCol, $mar_r))) - ($pad * 2 ));
+
+    width: $width + 0%;
+    padding: $pad + 0%;
+    // Si different de derniere colonne d'un bloc
+    @if $fin == null{ 
+        margin: 0 ($mar_r + 0%) 0 0;
+        float: left;
+    }
+    // Si derniere colonne d'un bloc
+    @else if $fin == fin{ 
+        margin: 0;
+        float: right;
+    }
+    @if $cf == cf{
+        @include clearfix;
+        overflow: hidden; // Contexte de formatage, empêche le dépassement des flottants
+    }
+}

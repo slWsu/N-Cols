@@ -1,0 +1,132 @@
+// -----------------------------------------------------------------------------
+// Fichier: _N-Cols-css-3.scss
+// ---
+//
+// Package : N-Col(s) Master - V 1.0.0 Beta
+// Copyright : (c) 2013 - 2015 Steeve Lefebvre - <webstartup.sl at gmail.com>
+// Projet URI: 
+// License   : http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
+// ---
+//
+// Description: 
+// Ce fichier contient les différentes mixins utilisées pour du css-3
+// ---
+//
+// Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+// Les préfixes vendeurs
+// http://caniuse.com/
+// http://fmbip.com/litmus
+// http://www.emmanuelbeziat.com/blog/prefixes-css-jusqua-quand/
+// -----------------------------------------------------------------------------
+//
+// L'utilisation ou non des préfixes pour certaines porprétées css-3 est géré au sein de la mixins
+//
+// -o-       /* Opera */
+// -ms-      /* Microsoft IE */
+// -moz-     /* Firefox and other browsers using Mozilla's browser engine */
+// -khtml-   /* Konqueror browser */
+// -webkit-  /* Safari, Chrome, iOS and browsers using the Webkit engine */
+// 
+// TODO : Voire si les préfixes suivants sont a prendre en compte
+//
+// mso-      /* Microsoft Office */
+// -atsc-    /* Advanced Television Standards Committee */
+// -wap-     /* The WAP Forum */
+
+// -----------------------------------------------------------------------------
+// Gestion des préfixes 
+//
+// ATTENTION : Les valeurs passées dans $N-Cols_mixin_prefixes ne sont pas a jour !!!
+//
+// TODO : Mettre a jour les préfixes vendeurs
+$N-Cols_mixin_prefixes: (
+text_shadow: null,
+box_shadow: null,
+border_radius: moz webkit,
+transition: ms webkit,
+transform: ms webkit,
+linear-gradient: webkit moz o
+);
+
+
+// -----------------------------------------------------------------------------
+// Ajouter un text-shadow
+// ---
+// Utilisation:
+// @include text_shadow(2px 2px 6px black);
+// @include text_shadow('2px 2px 6px black, -2px -2px 2px gray');
+@mixin text_shadow($valeurs, $couleur:$N-Cols_textShadow){
+    @include regle_css(text-shadow, unquote($valeurs), map-get($N-Cols_mixin_prefixes, text_shadow));
+}
+
+
+// -----------------------------------------------------------------------------
+// Ajouter un box-shadow
+// ---
+// Utilisation:
+// @include box_shadow(2px 2px 2px gray);
+// @include box_shadow('2px 2px 2px gray, 0 0 6px green inset');
+@mixin box_shadow($valeurs, $couleur:$N-Cols_boxShadow){
+    @include regle_css(box-shadow, unquote($valeurs $couleur), map-get($N-Cols_mixin_prefixes, box_shadow));
+}
+
+
+// -----------------------------------------------------------------------------
+// border_radius
+// ---
+// Utilisation:
+// @include border_radius(25px);
+// @include border_radius('10% / 15px');
+// @include border_radius('10% 20% / 37px 55px 28px 43px');
+@mixin border_radius($valeurs){
+    @include regle_css(border-radius, unquote($valeurs), map-get($N-Cols_mixin_prefixes, border_radius));
+    background-clip: padding-box; // http://tumble.sneak.co.nz/post/928998513/fixing-the-background-bleed
+}
+
+
+// -----------------------------------------------------------------------------
+// Ajouter une transition
+// ---
+// Utilisation:
+// @include transition(0.2);
+@mixin transition($valeurs){
+    $unite: unit($valeurs); 
+    @if $unite == s{
+        @include regle_css(transition-duration, unquote($valeurs), map-get($N-Cols_mixin_prefixes, transition));
+    }@else{
+        @include regle_css(transition-duration, unquote($valeurs)#{s}, map-get($N-Cols_mixin_prefixes, transition));
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+// Ajouter une rotation
+// ---
+// Utilisation:
+// @include transform(7deg);
+// @include transform(7deg, scale);
+@mixin transform($valeurs, $type:rotate){
+    @if $type == rotate{
+        @include regle_css(transform, rotate($valeurs), map-get($N-Cols_mixin_prefixes, transform));
+    }@else if $type == scale{
+        @include regle_css(transform, scale($valeurs), map-get($N-Cols_mixin_prefixes, transform));
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+// Ajouter une opacité
+// ---
+// Utilisation:
+// @include opacity(0.8);
+@mixin opacity($valeurs) {
+    opacity: $valeurs;
+    $valeurs-ie: $valeurs * 100;
+    filter: alpha(opacity=$valeurs-ie); //IE8
+}
+
+

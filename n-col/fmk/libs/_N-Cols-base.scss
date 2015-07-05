@@ -1,0 +1,127 @@
+// -----------------------------------------------------------------------------
+// Fichier: _N-Cols-base.scss
+// ---
+//
+// Package : N-Col(s) Master - V 1.0.0 Beta
+// Copyright : (c) 2013 - 2015 Steeve Lefebvre - <webstartup.sl at gmail.com>
+// Projet URI:
+// License   : http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
+// ---
+//
+// Description:
+// Ce fichier contient le css de base, ses viriables sont déclarées ici hors Fmk
+// ---
+//
+// Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+// -----------------------------------------------------------------------------
+
+/* BASE */
+
+// -----------------------------------------------------------------------------
+// Les variables dédiées a ce fichier ------------------------------------------
+$base-font-size: $N-Cols_font-size !default;
+$base-line-height: $N-Cols_line-height !default;
+
+$base-h1: $base-font-size + 16px !default;
+$base-h2: $base-font-size + 6px !default;
+$base-h3: $base-font-size + 4px !default;
+$base-h4: $base-font-size + 2px !default;
+$base-h5: $base-font-size + 1px !default;
+$base-h6: $base-font-size + 0px !default;
+
+
+// -----------------------------------------------------------------------------
+// Le css ----------------------------------------------------------------------
+html{
+    font-size: 100%;
+    direction: $N-Cols_text_direction;
+    @include regle_css(text-size-adjust, 100%, $N-Cols_prefixes_full);
+}
+
+
+html, body{
+    @include regle_px_rem(font-size, $base-font-size);
+    @include regle_px_rem(line-height, ($base-line-height / 1.2));
+}
+
+
+@each $header, $size in (h1:$base-h1, h2:$base-h2, h3:$base-h3, h4:$base-h4, h5:$base-h5, h6:$base-h6) {
+    #{$header} {
+        @include regle_px_rem(font-size, ($size));
+        @include regle_px_rem(line-height, (($size / 100) * 150));
+
+        display: block;
+
+        &:first-child{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        &:last-child{
+            // En fonction de vos besoin
+        }
+    }
+}
+
+
+
+p, table{
+    word-wrap: break-word;
+    @include regle_css(hyphens, auto, $N-Cols_prefixes_full);
+}
+
+p, table{
+    margin-top: 0;
+    &:first-child{
+        margin-top: 0;
+    }
+    &:last-child{
+        margin-bottom: $base-line-height;
+    }
+}
+
+ul, ol{
+    @include regle_px_rem(margin-left, 0);
+    li{
+        @include regle_px_rem(margin-left, 0);
+        @include regle_px_rem(padding, 1px 0);
+        ul, ol{
+            @include regle_px_rem(margin-left, $base-line-height + 0);
+            ul, ol{
+                @include regle_px_rem(margin-left, $base-line-height + 0.5);
+            }
+            &:last-child{
+                margin-bottom: -12px;
+            }
+        }
+    }
+    ul, ol{
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+
+table{
+    width: 100%;
+    caption, th{
+        margin-top: $base-line-height;
+        padding: 0.3rem 0;
+        font-weight: bold;
+    }
+    td{
+        border: 1px solid black;
+        padding-left: 1rem;
+    }
+    th{
+        border: 1px solid black;
+    }
+    tr:nth-child(odd){
+        background-color:#EEF;
+    }
+    tr:nth-child(2n + 1){
+        background-color:#EEF;
+    }
+}

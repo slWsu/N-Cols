@@ -1,0 +1,47 @@
+// -----------------------------------------------------------------------------
+// Fichier: /_N-Cols-vars.scss
+// ---
+//
+// Package : N-Col(s) Master - V 1.0.0 Beta
+// Copyright : (c) 2013 - 2015 Steeve Lefebvre - <webstartup.sl at gmail.com>
+// Projet URI: 
+// License   : http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
+// ---
+//
+// Description: 
+// Ce fichier contient les variables utilisées pour N-Col(s)
+// A moin de savoir ce que vous faites, ne les modifiez pas dirrectement ici, 
+// vous pouvez les sur-charger dans le fichier sass/theme/_theme_vars.scss
+// ---
+//
+// Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+// Les préfixe navigateurs -----------------------------------------------------
+$N-Cols_prefixes_full: webkit moz khtml o ms !default;
+
+
+// -----------------------------------------------------------------------------
+// LES MEDIAS QUERIES ----------------------------------------------------------
+$N-Cols_mobile: 499px;        // Mobiles (la plupart sont situé entre 320 et 480px)
+$N-Cols_tablette: 768px;      // Tablettes, notepad
+$N-Cols_tablette-max: 1024px; // Anciens pc
+$N-Cols_pc-petit-max: 1280px;     // PC portable
+$N-Cols_pc-grand-max: 1920px;     // PC de bureau
+
+
+// -----------------------------------------------------------------------------
+// LA TYPOGRAPHIE --------------------------------------------------------------
+$N-Cols_ltr: ltr;
+$N-Cols_rtl: rtl;
+$N-Cols_text_direction: $N-Cols_ltr !default;
+
+$N-Cols_font-size: 19px !default;
+$N-Cols_line-height: 1.5rem !default;
+
+// -----------------------------------------------------------------------------
+// LES COULEURS
+$N-Cols_textShadow: gray;
+$N-Cols_boxShadow: gray;

@@ -1,0 +1,49 @@
+// -----------------------------------------------------------------------------
+// Fichier: _N-Cols-helpers.scss
+// ---
+//
+// Package : N-Col(s) Master - V 1.0.0 Beta
+// Copyright : (c) 2013 - 2015 Steeve Lefebvre - <webstartup.sl at gmail.com>
+// Projet URI: 
+// License   : http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
+// ---
+//
+// Description:
+// Ce fichier contient quelques classes css prètes à l'emploi
+// Les classes définies ici sont à uiliser dirrectement dans le html
+// ---
+//
+// Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+// -----------------------------------------------------------------------------
+
+/* HELPERS */
+
+// -----------------------------------------------------------------------------
+// Aligner du texte ------------------------------------------------------------
+.tal{ text-align: left !important; }
+.tac{ text-align: center !important; }
+.tar{ text-align: right !important; }
+.taj{ text-align: justify !important; }
+
+
+// -----------------------------------------------------------------------------
+// Positionner un elements -----------------------------------------------------
+.fl{ float: left !important; }
+.fc{ margin: 0 auto !important; }
+.fr{ float: right !important; }
+
+
+// -----------------------------------------------------------------------------
+// Clear-Fix -------------------------------------------------------------------
+.cf{ @include clearfix(); }
+.cl { clear: both; }
+br.cl { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    height: 0; 
+    @include regle-px-rem(line-height, 1rem);
+    @include regle-px-rem(font-size, 1px);
+}
+hr.cl { visibility: hidden; }
+
