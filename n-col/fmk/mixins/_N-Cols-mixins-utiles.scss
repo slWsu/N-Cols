@@ -135,29 +135,3 @@
     @import url($url);
 }
 
-
-// -----------------------------------------------------------------------------
-// Ajouter un pattern en fond
-// ---
-// @param 1 Nom du pattern
-// @param 2 Background repeat
-// @param 3 Background origin
-// @param 4 Background position
-// @param 5 Background size
-// ---
-// Utilisation:
-// @include pattern(crossword);
-
-@mixin pattern($pattern, $repeat:repeat, $origine:border-box, $position:left top, $size:null) {
-    $url: "http://subtlepatterns.com/patterns/";
-    $url: $url + $pattern + '.png';
-    background-image:  url($url);
-    background-repeat: $repeat;
-    background-position: $position;
-
-    @include regle_css(background-origin, $origine, $N-Cols_prefixes_full);
-
-    @if $size != null{
-        @include regle_css(background-size, $size, $N-Cols_prefixes_full);
-    }
-}
