@@ -34,7 +34,7 @@ Il nécessite d’avoir préalablement installé pré-processeur SASS: au cas o�
 Partant du principe que tout est bon, ouvrez votre serveur local et décompressez l'archive d'N-col(s), il contient tous ce qu’il fait pour bien commencer les tests.
 
 L code est en place, il vous faut lancer Sass, ouvrez le dossier: sass/config/ et double-cliquez sur le fichier .bat, un invite de commande s’ouvre et affiche: 
---- Sass is watching for changes. Press Ctrl-C to stop ---
+---> Sass is watching for changes. Press Ctrl-C to stop
 
 La machine est en route, y-a plus qu’a…
 
