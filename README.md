@@ -130,13 +130,15 @@ footer{
 Au finale, le css compilé sera celui ci-dessous
 
 ```css
-body { background-color: black; }
+body { background-image: url("libs/images/fond.png"); }
 
 header { margin: 0 0 0 0; padding: 0 0; background-color: white; }
 header #header { width: 1025px; position: relative; left: 50%; margin: 0 auto 0 -512.5px; padding: 0 0; }
 
 main { margin: 0 0 0 0; padding: 0 0; }
-main #main { width: 1025px; position: relative; left: 50%; margin: 0 auto 0 -512.5px; padding: 0 0; }
+main #main { width: 1025px; position: relative; left: 50%; margin: 0 auto 0 -512.5px; padding: 0 0; *zoom: 1; overflow: hidden; }
+main #main:before, main #main:after { content: ''; display: table; }
+main #main:after { clear: both; }
 main #main article { width: 70%; padding: 0%; margin: 0 0% 0 0; float: left; }
 main #main aside { width: 30%; padding: 0%; margin: 0 0% 0 0; float: left; }
 
