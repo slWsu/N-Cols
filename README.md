@@ -104,7 +104,7 @@ header{
 main{
     @include auto-conteneur();
     #main{
-        @include box-conteneur(1025px);
+        @include box-conteneur(1025px, $cf:cf);
         // ARTICLE
         article{
             @include colonne-conteneur(10, 7);
