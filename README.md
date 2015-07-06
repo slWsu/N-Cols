@@ -16,15 +16,15 @@ Ces mixins seront utilisées sur tous les blocs servant à la mise en forme de l
 ```scss
 .exemple{
     // Permet de créer des rangées de contenus
-    @mixin auto-conteneur($m-top:0, $m-bot:0, $pad-tb:0, $pad-lr:0, $cf:null); 
+    @include auto-conteneur($mar_t:15px, $mar_b:33px, $pad_tb:25px, $pad_lr:25px, $cf:null); 
 }
 .exemple{
     // Permet de créer des blocs de contenus a largueur fixe et centrés
-    @mixin box-conteneur($width:$fmk-box-width, $m-top:0, $m-bot:0, $pad-tb:0, $pad-lr:0, $cf:null);
+    @include box-conteneur($width:1200px, $mar_t:50px, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null);
 }
 .exemple{
     // Permet de fractionner un bloc en colonnes
-    @mixin colonne-conteneur($parent-nbCol:1, $nbCol:1, $padding:0%, $margin-right:0%, $fin:null, $cf:null);
+    @include colonne-conteneur($par_nbCol:1, $elm_nbCol:1, $pad:0%, $mar_r:0%, $fin:null, $cf:null);
 }
 ```
 
