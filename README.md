@@ -92,7 +92,7 @@ Ajoutez le code suivant dans votre fichier _theme.scss
 ```scss
 // GENERALE
 body{
-    background-color: gray;
+    background-image: url("libs/images/fond.png");
 }
 // HEADER
 header{
