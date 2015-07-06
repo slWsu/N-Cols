@@ -66,14 +66,16 @@ Pour commencer, nous allons partir d’un modèle html simple, celui ci-dessous,
         </header>
         <!-- MAIN -->
         <main>
-            <!-- ARTICLE -->
-            <article>
-                <h1>Mon article</h1>
-            </article>
-            <!-- ASIDE -->
-            <aside>
-                <h3>Mon aside</h3>
-            </aside>
+            <div id="main">
+                <!-- ARTICLE -->
+                <article>
+                    <h1>Mon article</h1>
+                </article>
+                <!-- ASIDE -->
+                <aside>
+                    <h3>Mon aside</h3>
+                </aside>
+            </div>
         </main>
         <!-- FOOTER -->
         <footer>
@@ -90,7 +92,7 @@ Ajoutez le code suivant dans votre fichier _theme.scss
 ```scss
 // GENERALE
 body{
-    background-color: black;
+    background-color: gray;
 }
 // HEADER
 header{
@@ -144,11 +146,12 @@ footer #footer { width: 1025px; position: relative; left: 50%; margin: 0 auto 0 
 
 ## Crédits
 
-[SASS](http://sass-lang.com/)
-[Eric Meyer](http://meyerweb.com/eric/tools/css/reset/)
-[Google Fonts](https://www.google.com/fonts/)
-[Font Awesome] (http://fortawesome.github.io/)
-[Twemoji Awesome](http://ellekasai.github.io/twemoji-awesome/)
-[Draw a Tree Structure](http://two-wrongs.com/draw-a-tree-structure-with-only-css)
+ -[SASS](http://sass-lang.com/)
+ -[Eric Meyer](http://meyerweb.com/eric/tools/css/reset/)
+ -[Google Fonts](https://www.google.com/fonts/)
+ -[Font Awesome] (http://fortawesome.github.io/)
+ -[Twemoji Awesome](http://ellekasai.github.io/twemoji-awesome/)
 
 ## License
+
+CONTRAT DE LICENCE DE LOGICIEL LIBRE CeCILL-C : Voir LICENSE.md
