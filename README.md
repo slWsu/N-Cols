@@ -47,7 +47,15 @@ Pour commencer, nous allons partir d’un modèle html simple, celui ci-dessous,
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Premier test N-Col(s)</title>
+        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Titre du site</title>
+        
+        <link rel="stylesheet" href="style.css">
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen"/>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
     </head>
     <body>
         <!-- HEADER -->
