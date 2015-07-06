@@ -6,7 +6,7 @@ Mini framework scss basé sur un système Multi-grille allant de 1 à n colonnes
 
 N-Col(s) a pour but d'offrir aux web-designer un cadre de travail structuré ou la création de code métier est prioritère sur l'adaptation.
 
-Malgré cela, N-Col(s) ne fournit, pour le moment, pas tout ce dont vous avez besoin pour la réalisation complète d’un site, in dispose pour le moment d'une base typographique minimaliste, un système Multi-grilles, des médias-queries, des mixins css-3 et quelques autres mixins dédiées au design (Fonts, Patterns, liens…) permettant de gagner pas mal de temps tout en simplifiant la gestion des modifications.
+Malgré cela, N-Col(s) ne fournit, pour le moment, pas tout ce dont vous avez besoin pour la réalisation complète d’un site, il dispose d'une base typographique minimaliste, un système Multi-grilles, des médias-queries, des mixins css-3 et quelques autres mixins dédiées au design (Fonts, Patterns, liens…) permettant de gagner pas mal de temps tout en simplifiant la gestion des modifications.
 
 ## Code Example
 
@@ -31,11 +31,9 @@ Ces mixins seront utilisées sur tous les blocs servant à la mise en forme de l
 ## Installation
 Il nécessite d’avoir préalablement installé pré-processeur SASS: au cas où, [voici le Guide d’installation de Sass] (http://sass-lang.com/install).
 
-Partant du principe que tout est bon, vous pouvez maintenant créer un nouveau dossier (nommé comme bon vous semble) dans votre serveur local.
+Partant du principe que tout est bon, ouvrez votre serveur local et décompressez l'archive d'N-col(s), il contient tous ce qu’il fait pour bien commencer les tests.
 
-Ouvrez ce nouveau dossier et décompressez l'archive d'N-col(s), il contient tous ce qu’il fait pour bien commencer les tests.
-
-Maintenant que le code est en place, il vous faut lancer Sass, ouvrez le dossier: sass/config/ et double-cliquez sur le fichier .bat, un invite de commande s’ouvre et affiche: « Sass is watching for changes. Press Ctrl-C to stop »
+L code est en place, il vous faut lancer Sass, ouvrez le dossier: sass/config/ et double-cliquez sur le fichier .bat, un invite de commande s’ouvre et affiche: --- Sass is watching for changes. Press Ctrl-C to stop ---
 
 La machine est en route, y-a plus qu’a…
 
