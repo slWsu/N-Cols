@@ -31,13 +31,12 @@
 
 // -----------------------------------------------------------------------------
 // Import des fichiers N-Col(s) ------------------------------------------------
-@import "fmk/_N-Cols-apports.scss";
+@import "n-col(s)/_N-Cols-apports.scss";
 
 // -----------------------------------------------------------------------------
 // Import des librairies N-Col(s) ----------------------------------------------
-@import "fmk/libs/_N-Cols-apports.scss";
+@import "n-col(s)/libs/_N-Cols-apports.scss";
 
 // -----------------------------------------------------------------------------
 // Import des fichiers du theme ------------------------------------------------
 @import "theme/_apports.scss";
-

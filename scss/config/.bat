@@ -1,1 +1,1 @@
-sass --watch ../../n-col:../../ --style compact
+sass --watch ../../scss:../../ --style compact
