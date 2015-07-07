@@ -16,26 +16,26 @@ License: http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
 ### Les média-queries 
 
 ```scss
----> @include rmq($media, $type:max, $orientation: null){ /* Votre css */ };
+@include rmq($media, $type:max, $orientation: null){ /* Votre css */ };
 ```
 
 ### Les mixins utiles
 
 ```scss
----> @include clearfix($type:min);
----> @include typo_fonts($noms...);
----> @include regle_px_rem($regle, $valeurs);
----> @include regle_css($regle, $valeurs, $prefixes:null);
+@include clearfix($type:min);
+@include typo_fonts($noms...);
+@include regle_px_rem($regle, $valeurs);
+@include regle_css($regle, $valeurs, $prefixes:null);
 ```
 
 ### Le css-3
 
 ```scss
----> @include border_radius($valeurs);
----> @include text_shadow($valeurs);
----> @include box_shadow($valeurs);
----> @include transition($valeurs);
----> @include transform($valeurs, $type:rotate);
----> @include opacite($valeurs);
+@include border_radius($valeurs);
+@include text_shadow($valeurs);
+@include box_shadow($valeurs);
+@include transition($valeurs);
+@include transform($valeurs, $type:rotate);
+@include opacite($valeurs);
 ```
 
