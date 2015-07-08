@@ -58,7 +58,7 @@
 // @include box-conteneur($width:1200px, $mar_t:50px, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null);
 // @include box-conteneur($width:80%, $mar_t:50px, $mar_b:0, $pad_tb:0, $pad_lr:3%, $cf:null);
 
-@mixin box-conteneur($width:$N-Cols_bow_width, $mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null){
+@mixin box-conteneur($width:$N-Cols_box_width, $mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null){
     width: $width - ($pad-lr * 2) + 0;
     position: relative;
     // ---
