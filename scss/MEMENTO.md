@@ -45,6 +45,8 @@ License: http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
 
 ```scss
 // Les noms des mixins parlent d'eux mêmes.
+// Certaines de ces mixins préfixées automatiquement, voir: 
+// $N-Cols_mixin_prefixes:{} situé au début du fichier _N-Cols-css-3.scss
 
 @include text_shadow($valeurs, $couleur:$N-Cols_textShadow);
 @include box_shadow($valeurs, $couleur:$N-Cols_boxShadow);
