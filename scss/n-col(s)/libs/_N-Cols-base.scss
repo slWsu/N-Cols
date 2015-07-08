@@ -90,14 +90,6 @@ table {
     border-collapse: collapse;
     border: 1px solid #eee;
     border-bottom: 2px solid #000;
-    tr {
-        &:hover {
-            background: PaleGreen;
-            td {
-                color: #555;
-            }
-        }
-    }
     th, td {
         color: #999;
         border: 1px solid #eee;
@@ -106,11 +98,7 @@ table {
     }
     th {
         background: #000;
-        color: #fff;
         text-transform: uppercase;
         font-size: 12px;
-        &.last {
-            border-right: none;
-        }
     }
 }
