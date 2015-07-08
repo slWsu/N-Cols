@@ -29,8 +29,6 @@
 // @include auto-conteneur($mar_t:15px, $mar_b:33px, $pad_tb:25px, $pad_lr:25px, $cf:null);
 
 @mixin auto-conteneur($mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null){
-    // width: 100 - ($pad-lr * 2) + 0%; // Ancienne version, ne permet pas le width en px
-    // width: auto;
     margin: $mar_t 0 $mar_b 0;
     padding: ($pad_tb + 0) ($pad_lr + 0);
     @if $cf == cf{ 
@@ -60,7 +58,7 @@
 // @include box-conteneur($width:1200px, $mar_t:50px, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null);
 // @include box-conteneur($width:80%, $mar_t:50px, $mar_b:0, $pad_tb:0, $pad_lr:3%, $cf:null);
 
-@mixin box-conteneur($width:$fmk-box-width, $mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null){
+@mixin box-conteneur($width:$N-Cols_bow_width, $mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null){
     width: $width - ($pad-lr * 2) + 0;
     position: relative;
     // ---
