@@ -29,14 +29,23 @@
 /* Construit avec N-Cols : https://github.com/slWsu/N-Cols */
 // Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
 
+
 // -----------------------------------------------------------------------------
-// Import des fichiers N-Col(s) ------------------------------------------------
+// Import des variables de N-Col(s)) 
+@import "n-col(s)/_N-Cols-vars.scss";
+
+// -----------------------------------------------------------------------------
+// Import des variables du theme 
+@import "theme/_theme-vars.scss";
+
+// -----------------------------------------------------------------------------
+// Import des fichiers N-Col(s) 
 @import "n-col(s)/_N-Cols-apports.scss";
 
 // -----------------------------------------------------------------------------
-// Import des librairies N-Col(s) ----------------------------------------------
+// Import des librairies N-Col(s) 
 @import "n-col(s)/libs/_N-Cols-apports.scss";
 
 // -----------------------------------------------------------------------------
-// Import des fichiers du theme ------------------------------------------------
+// Import des fichiers du theme 
 @import "theme/_apports.scss";

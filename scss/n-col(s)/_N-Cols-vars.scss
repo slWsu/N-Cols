@@ -25,11 +25,11 @@ $N-Cols_prefixes_full: webkit moz khtml o ms !default;
 
 // -----------------------------------------------------------------------------
 // LES MEDIAS QUERIES ----------------------------------------------------------
-$N-Cols_mobile: 499px;        // Mobiles (la plupart sont situé entre 320 et 480px)
-$N-Cols_tablette: 768px;      // Tablettes, notepad
-$N-Cols_tablette-max: 1024px; // Anciens pc
-$N-Cols_pc-petit-max: 1280px;     // PC portable
-$N-Cols_pc-grand-max: 1920px;     // PC de bureau
+$N-Cols_mobile: 499px !default;        // Mobiles (la plupart sont situé entre 320 et 480px)
+$N-Cols_tablette: 768px !default;      // Tablettes, notepad
+$N-Cols_tablette-max: 1024px !default; // Anciens pc
+$N-Cols_pc-petit-max: 1280px !default;     // PC portable
+$N-Cols_pc-grand-max: 1920px !default;     // PC de bureau
 
 
 // -----------------------------------------------------------------------------
@@ -43,5 +43,5 @@ $N-Cols_line-height: 1.5rem !default;
 
 // -----------------------------------------------------------------------------
 // LES COULEURS
-$N-Cols_textShadow: gray;
-$N-Cols_boxShadow: gray; 
+$N-Cols_textShadow: gray !default;
+$N-Cols_boxShadow: gray !default; 
