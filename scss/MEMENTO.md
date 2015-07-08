@@ -46,9 +46,9 @@ License: http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
 ```scss
 // Les noms des mixins parlent d'eux mêmes.
 
+@include text_shadow($valeurs, $couleur:$N-Cols_textShadow);
+@include box_shadow($valeurs, $couleur:$N-Cols_boxShadow);
 @include border_radius($valeurs);
-@include text_shadow($valeurs);
-@include box_shadow($valeurs);
 @include transition($valeurs);
 @include transform($valeurs, $type:rotate);
 @include opacite($valeurs);
