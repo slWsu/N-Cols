@@ -22,7 +22,7 @@ License: http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
 
 ```scss
 // Permet d'ajouter des requêtes de médias
-@include rmq($media, $type:max, $orientation: null){ /* Votre css */ };
+@include rmq($media, $type:max, $orientation:null){ /* Votre css */ };
 ```
 
 ### Les mixins utiles
