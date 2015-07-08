@@ -12,7 +12,7 @@ License: http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
 @include auto_conteneur($mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null);
 
 // Permet d'ajouter un bloc de contenu centré: margin: 0 auto;
-@include box_conteneur($width:$fmk-box-width, $mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null);
+@include box_conteneur($width:$N-Cols_box_width, $mar_t:0, $mar_b:0, $pad_tb:0, $pad_lr:0, $cf:null);
 
 // Permet d'ajouter un bloc de colonnes
 @include colonne_conteneur($par_nbCol:1, $elm_nbCol:1, $pad:0%, $mar_r:0%, $fin:null, $cf:null);
