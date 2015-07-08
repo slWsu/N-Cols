@@ -23,7 +23,7 @@ $base-font-size: $N-Cols_font-size !default;
 $base-line-height: $N-Cols_line-height !default;
 
 $base-h1: $base-font-size + 16px !default;
-$base-h2: $base-font-size + 6px !default;
+$base-h2: $base-font-size + 10px !default;
 $base-h3: $base-font-size + 4px !default;
 $base-h4: $base-font-size + 2px !default;
 $base-h5: $base-font-size + 1px !default;
@@ -49,16 +49,7 @@ html, body{
     #{$header} {
         @include regle_px_rem(font-size, ($size));
         @include regle_px_rem(line-height, (($size / 100) * 150));
-
         display: block;
-
-        &:first-child{
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-        &:last-child{
-            // En fonction de vos besoin
-        }
     }
 }
 
@@ -71,12 +62,6 @@ p, table{
 
 p, table{
     margin-top: 0;
-    &:first-child{
-        margin-top: 0;
-    }
-    &:last-child{
-        // margin-bottom: $base-line-height;
-    }
 }
 
 ul, ol{
@@ -89,9 +74,6 @@ ul, ol{
             ul, ol{
                 @include regle_px_rem(margin-left, $base-line-height + 0.5);
             }
-            &:last-child{
-                margin-bottom: -12px;
-            }
         }
     }
     ul, ol{
@@ -99,29 +81,36 @@ ul, ol{
         margin-bottom: 0;
         margin-left: 0;
     }
-    &:last-child{
-        margin-bottom: 0;
-    }
 }
 
-table{
+
+
+table {
     width: 100%;
-    caption, th{
-        margin-top: $base-line-height;
-        padding: 0.3rem 0;
-        font-weight: bold;
+    border-collapse: collapse;
+    border: 1px solid #eee;
+    border-bottom: 2px solid #000;
+    tr {
+        &:hover {
+            background: PaleGreen;
+            td {
+                color: #555;
+            }
+        }
     }
-    td{
-        border: 1px solid black;
-        padding-left: 1rem;
+    th, td {
+        color: #999;
+        border: 1px solid #eee;
+        padding: 12px 35px;
+        border-collapse: collapse;
     }
-    th{
-        border: 1px solid black;
-    }
-    tr:nth-child(odd){
-        background-color:#EEF;
-    }
-    tr:nth-child(2n + 1){
-        background-color:#EEF;
+    th {
+        background: #000;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 12px;
+        &.last {
+            border-right: none;
+        }
     }
 }
