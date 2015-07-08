@@ -51,7 +51,7 @@ linear-gradient: webkit moz o
 // Ajouter un text-shadow
 // ---
 // Utilisation:
-// @include text_shadow(2px 2px 6px black);
+// @include text_shadow(2px 2px 6px, black);
 @mixin text_shadow($valeurs, $couleur:$N-Cols_textShadow){
     @include regle_css(text-shadow, unquote($valeurs $couleur), map-get($N-Cols_mixin_prefixes, text_shadow));
 }
@@ -61,8 +61,7 @@ linear-gradient: webkit moz o
 // Ajouter un box-shadow
 // ---
 // Utilisation:
-// @include box_shadow(2px 2px 2px gray);
-// @include box_shadow('2px 2px 2px gray, 0 0 6px green inset');
+// @include box_shadow(2px 2px 2px, gray);
 @mixin box_shadow($valeurs, $couleur:$N-Cols_boxShadow){
     @include regle_css(box-shadow, unquote($valeurs $couleur), map-get($N-Cols_mixin_prefixes, box_shadow));
 }
