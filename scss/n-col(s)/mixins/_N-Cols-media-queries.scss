@@ -25,7 +25,7 @@
 // ---
 // Utilisation:
 // @include rmq(mobile){ /* Votre css */ };
-// @include rmq(tblette, min-max){ /* Votre css */ };
+// @include rmq(tablette, min-max){ /* Votre css */ };
 // @include rmq(pc-petit-max, min, portrait){ /* Votre css */ };
 @mixin rmq($media:tablette, $type:max, $orientation: null){
     $size: '';
@@ -41,10 +41,10 @@
             $size: $N-Cols_tablette-max;
         }
         @else if $media == pc-petit-max{
-            $size: $N-Cols_PC-petit-max;
+            $size: $N-Cols_pc-petit-max;
         }
         @else if $media == pc-bureau-max{      
-            $size: $N-Cols_PC-grand-max;
+            $size: $N-Cols_pc-grand-max;
         }
 
         @if $type == max{
