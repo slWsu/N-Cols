@@ -19,7 +19,7 @@
 /* HELPERS */
 
 // -----------------------------------------------------------------------------
-// Aligner du texte ------------------------------------------------------------
+// Aligner du texte
 .tal{ text-align: left !important; }
 .tac{ text-align: center !important; }
 .tar{ text-align: right !important; }
@@ -27,14 +27,14 @@
 
 
 // -----------------------------------------------------------------------------
-// Positionner un elements -----------------------------------------------------
+// Positionner un elements
 .fl{ float: left !important; }
 .fc{ margin: 0 auto !important; }
 .fr{ float: right !important; }
 
 
 // -----------------------------------------------------------------------------
-// Clear-Fix -------------------------------------------------------------------
+// Clear-Fix
 .cf{ @include clearfix(); }
 .cl { clear: both; }
 br.cl { 
@@ -46,4 +46,33 @@ br.cl {
     @include regle-px-rem(font-size, 1px);
 }
 hr.cl { visibility: hidden; }
+
+
+// -----------------------------------------------------------------------------
+// Afficher cacher en fonction du format
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.v_pc { display: inline !important; }
+.h_pc { display: none !important; }
+.v_mobile { display: none !important; }
+.h_mobile { }
+.v_tablette { display: none !important; }
+.h_tablette { }
+
+@include rmq(tablette, max){
+    .v_pc { display: none !important ; }
+    .h_pc { display: inherit !important; }
+    .v_tablette { display: inherit !important; }
+    .h_tablette { display: none !important; }
+};
+
+@include rmq(mobile, max){
+    .v_pc { display: none !important; }
+    .h_pc { display: inherit !important; }
+    .v_mobile { display: inline !important; }
+    .h_mobile { display: none !important; }
+};
 
