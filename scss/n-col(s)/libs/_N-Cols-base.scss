@@ -67,8 +67,13 @@ p{
     word-wrap: break-word;
     margin-top: 0;
     @include regle_css(hyphens, auto, $N-Cols_prefixes_full);
+    .caps { 
+        float: left;  
+        @include regle_px_rem(font-size, $base-font-size + 60px);
+        @include regle_px_rem(line-height, $base-font-size + 40px);
+        @include regle_px_rem(padding, 5px 5px 0 0);
+    }
 }
-
 
 // -----------------------------------------------------------------------------
 // Liste UL OL
@@ -91,6 +96,9 @@ ul, ol{
     }
 }
 
+
+// -----------------------------------------------------------------------------
+// Tables
 table {
     width: 100%;
     @include regle_px_rem(margin, 0 0 10px 0);
@@ -112,8 +120,6 @@ table {
     }
 }
 
-// -----------------------------------------------------------------------------
-// Tables
 table.rmq {
     @extend table;
 
@@ -129,7 +135,7 @@ table.rmq {
         }
         td {
             display: block;
-        @include regle_px_rem(font-size, ($base-font-size - 4));
+            @include regle_px_rem(font-size, ($base-font-size - 4));
             text-align: right;
             border-bottom: 1px dotted #ccc;
             &:last-child {
@@ -143,4 +149,37 @@ table.rmq {
             }
         }
     };
+}
+
+
+// -----------------------------------------------------------------------------
+// Blockquote
+blockquote{
+    display:block;
+    background: #fff;
+    @include regle_px_rem(padding, 25px 25px 15px 65px);
+    position: relative;
+
+    @include regle_px_rem(font-size, $base-font-size);
+    line-height: 1.2;
+
+    border-left: 15px solid #ddd;
+    border-right: 2px solid #ddd;
+    &::before{
+        content: "\201C"; 
+        font-family: Georgia, serif;
+        @include regle_px_rem(font-size, $base-font-size + 60px);
+        @include regle_px_rem(margin, 0 15px 0 0);
+        font-weight: bold;
+        color: #999;
+        position: absolute;
+        left: 10px;
+        top:5px;
+    }
+    &::after{
+        content: "";
+    }
+    em{
+        font-style: italic;
+    }
 }
