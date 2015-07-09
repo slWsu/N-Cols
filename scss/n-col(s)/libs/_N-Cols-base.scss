@@ -31,13 +31,18 @@ $base-h6: $base-font-size + 0px !default;
 
 
 // -----------------------------------------------------------------------------
-// Le css ----------------------------------------------------------------------
+// Le css 
+*,*:before,*:after{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html{
     font-size: 100%;
     direction: $N-Cols_text_direction;
     @include regle_css(text-size-adjust, 100%, $N-Cols_prefixes_full);
 }
-
 
 html, body{
     @include regle_px_rem(font-size, $base-font-size);
@@ -45,25 +50,28 @@ html, body{
 }
 
 
+// -----------------------------------------------------------------------------
+// H1 > H6
 @each $header, $size in (h1:$base-h1, h2:$base-h2, h3:$base-h3, h4:$base-h4, h5:$base-h5, h6:$base-h6) {
     #{$header} {
-        @include regle_px_rem(font-size, ($size));
+        @include regle_px_rem(font-size, $size);
         @include regle_px_rem(line-height, (($size / 100) * 150));
         display: block;
     }
 }
 
 
-
-p, table{
+// -----------------------------------------------------------------------------
+// P
+p{
     word-wrap: break-word;
+    margin-top: 0;
     @include regle_css(hyphens, auto, $N-Cols_prefixes_full);
 }
 
-p, table{
-    margin-top: 0;
-}
 
+// -----------------------------------------------------------------------------
+// Liste UL OL
 ul, ol{
     @include regle_px_rem(margin-left, 0);
     li{
@@ -83,23 +91,56 @@ ul, ol{
     }
 }
 
-
-
 table {
     width: 100%;
+    @include regle_px_rem(margin, 0 0 10px 0);
+    padding:0;
+    border-spacing: 0;
+    border: 1px solid #ccc;
     border-collapse: collapse;
-    border: 1px solid #eee;
-    border-bottom: 2px solid #000;
-    thead{
-        color: white;
+    tr {
+        @include regle_px_rem(padding, 5px);
+        border: 1px solid #ddd;
     }
     th, td {
-        border: 1px solid #eee;
-        padding: 12px 35px;
-        border-collapse: collapse;
-    }
-    th {
-        background: #000;
+        @include regle_px_rem(padding, 10px);
+        text-align: center;
+    }th {
+        @include regle_px_rem(font-size, ($base-font-size));
+        letter-spacing: 1px;
         text-transform: uppercase;
     }
+}
+
+// -----------------------------------------------------------------------------
+// Tables
+table.rmq {
+    @extend table;
+
+    @include rmq(tablette, max){
+        border: 0;
+        thead {
+            display: none;
+        }
+        tr {
+            display: block;
+            @include regle_px_rem(margin-bottom, 10px);
+            border-bottom: 2px solid #ddd;
+        }
+        td {
+            display: block;
+        @include regle_px_rem(font-size, ($base-font-size - 4));
+            text-align: right;
+            border-bottom: 1px dotted #ccc;
+            &:last-child {
+                border-bottom: 0;
+            }
+            &:before {
+                float: left;
+                font-weight: bold;
+                content: attr(data-label);
+                text-transform: uppercase;
+            }
+        }
+    };
 }
